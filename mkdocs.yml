@@ -1,0 +1,25 @@
+site_name: Petstore Docs
+site_description: Aggregated documentation for the Petstore ecosystem
+repo_url: https://github.com/RamonAlcantaraArceo/petstore-docs
+edit_uri: edit/main/docs/
+
+theme:
+  name: material
+  features:
+    - navigation.tabs
+
+plugins:
+  - search
+  - multirepo:
+      cleanup: true
+      repos:
+        - section: petstore-api
+          import_url: "https://github.com/RamonAlcantaraArceo/petstore-api?branch=main&docs_dir=docs/"
+        - section: petstore-ui
+          import_url: "https://github.com/RamonAlcantaraArceo/petstore-ui?branch=main&docs_dir=docs/"
+        - section: petstore-mcp
+          import_url: "https://github.com/RamonAlcantaraArceo/petstore-mcp?branch=main&docs_dir=docs/"
+        - section: petstore-openapi-client-pydantic
+          import_url: "https://github.com/RamonAlcantaraArceo/petstore-openapi-client-pydantic?branch=main&docs_dir=docs/"
+        - section: petstore-test-python
+          import_url: "https://github.com/RamonAlcantaraArceo/petstore-test-python?branch=main&docs_dir=docs/"
