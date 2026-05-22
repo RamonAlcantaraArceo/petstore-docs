@@ -1,0 +1,4 @@
+.venv/
+site/
+temp_dir/
+__pycache__/

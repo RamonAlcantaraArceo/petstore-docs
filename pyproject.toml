@@ -1,0 +1,10 @@
+[project]
+name = "petstore-docs"
+version = "0.1.0"
+description = "Aggregated Petstore documentation site"
+requires-python = ">=3.12"
+dependencies = [
+  "mkdocs>=1.6,<2.0",
+  "mkdocs-material>=9.5,<10.0",
+  "mkdocs-multirepo-plugin>=0.8,<1.0",
+]
