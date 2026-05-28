@@ -1,15 +1,47 @@
 site_name: Petstore Docs
 site_description: Aggregated documentation for the Petstore ecosystem
+site_url: https://ramonalcantaraarceo.github.io/petstore-docs/
 repo_url: https://github.com/RamonAlcantaraArceo/petstore-docs
+repo_name: petstore-docs
 edit_uri: edit/main/docs/
 
 theme:
   name: material
+  palette:
+    - scheme: default
+      primary: indigo
+      accent: indigo
+      toggle:
+        icon: material/brightness-7
+        name: Switch to dark mode
+    - scheme: slate
+      primary: indigo
+      accent: indigo
+      toggle:
+        icon: material/brightness-4
+        name: Switch to light mode
   features:
     - navigation.tabs
+    - navigation.sections
+    - navigation.expand
+    - navigation.top
+    - search.highlight
+    - content.code.copy
+    - search.suggest
 
 plugins:
   - search
+  - mkdocstrings:
+      handlers:
+        python:
+          paths:
+            - .
+            - ../petstore-api
+            - ../petstore-test-python
+            - ../petstore-openapi-client-pydantic
+            - ../petstore-mcp
+          options:
+            show_source: true
   - multirepo:
       cleanup: true
       repos:
@@ -20,6 +52,26 @@ plugins:
         - section: petstore-mcp
           import_url: "https://github.com/RamonAlcantaraArceo/petstore-mcp?branch=main&docs_dir=docs/"
         - section: petstore-openapi-client-pydantic
-          import_url: "https://github.com/RamonAlcantaraArceo/petstore-openapi-client-pydantic?branch=main&docs_dir=docs/"
+          import_url: "https://github.com/RamonAlcantaraArceo/petstore-openapi-client-pydantic?branch=main"
         - section: petstore-test-python
           import_url: "https://github.com/RamonAlcantaraArceo/petstore-test-python?branch=main&docs_dir=docs/"
+
+markdown_extensions:
+  - codehilite
+  - pymdownx.superfences:
+      custom_fences:
+        - name: mermaid
+          class: mermaid
+          format: !!python/name:pymdownx.superfences.fence_code_format
+  - admonition
+  - pymdownx.details
+  - pymdownx.highlight:
+      anchor_linenums: true
+  - pymdownx.inlinehilite
+  - pymdownx.snippets
+  - pymdownx.tabbed:
+      alternate_style: true
+  - attr_list
+  - tables
+  - toc:
+      permalink: true
