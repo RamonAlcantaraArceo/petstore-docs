@@ -2,7 +2,7 @@ site_name: Petstore Docs
 site_description: Aggregated documentation for the Petstore ecosystem
 site_url: https://ramonalcantaraarceo.github.io/petstore-docs/
 repo_url: https://github.com/RamonAlcantaraArceo/petstore-docs
-repo_name: petstore-docs
+repo_name: RAA/petstore-docs
 edit_uri: edit/main/docs/
 
 theme:
@@ -40,20 +40,25 @@ plugins:
             - ../petstore-test-python
             - ../petstore-openapi-client-pydantic
             - ../petstore-mcp
+            - ../petstore-grpc
           options:
             show_source: true
+            docstring_style: google
   - multirepo:
       cleanup: true
+      keep_docs_dir: false
       repos:
-        - section: petstore-api
+        - section: FastAPI
           import_url: "https://github.com/RamonAlcantaraArceo/petstore-api?branch=main&docs_dir=docs/"
-        - section: petstore-ui
-          import_url: "https://github.com/RamonAlcantaraArceo/petstore-ui?branch=main&docs_dir=docs/"
-        - section: petstore-mcp
+        - section: React UI
+          import_url: "https://github.com/RamonAlcantaraArceo/petstore-ui?branch=doc&docs_dir=docs/"
+        - section: gRPC
+          import_url: "https://github.com/RamonAlcantaraArceo/petstore-grpc?branch=main"
+        - section: MCP
           import_url: "https://github.com/RamonAlcantaraArceo/petstore-mcp?branch=main&docs_dir=docs/"
-        - section: petstore-openapi-client-pydantic
-          import_url: "https://github.com/RamonAlcantaraArceo/petstore-openapi-client-pydantic?branch=main"
-        - section: petstore-test-python
+        - section: OpenAPI Client Pydantic
+          import_url: 'https://github.com/RamonAlcantaraArceo/petstore-openapi-client-pydantic?multidocs=True&branch=main&keep_docs_dir=true&extra_imports=["README.md"]'
+        - section: Test Python
           import_url: "https://github.com/RamonAlcantaraArceo/petstore-test-python?branch=main&docs_dir=docs/"
 
 markdown_extensions:
