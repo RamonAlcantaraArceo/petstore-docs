@@ -31,5 +31,9 @@ jobs:
       - name: Install dependencies
         run: uv sync --frozen
 
+      - name: Checkout mkdocstrings source dependency
+        run: |
+          git clone --depth 1 --branch main https://github.com/RamonAlcantaraArceo/petstore-test-python.git ../petstore-test-python
+
       - name: Deploy to GitHub Pages
         run: uv run mkdocs gh-deploy --force -v
