@@ -9,10 +9,19 @@ I wanted to share a portfolio project I've been building that demonstrates my ap
 Aggregated documentation covering all repositories:
 **https://ramonalcantaraarceo.github.io/petstore-docs/**
 
+Repositories covered by this docs site:
+
+- [petstore-api](https://github.com/RamonAlcantaraArceo/petstore-api)
+- [petstore-ui](https://github.com/RamonAlcantaraArceo/petstore-ui)
+- [petstore-grpc](https://github.com/RamonAlcantaraArceo/petstore-grpc)
+- [petstore-mcp](https://github.com/RamonAlcantaraArceo/petstore-mcp)
+- [petstore-openapi-client-pydantic](https://github.com/RamonAlcantaraArceo/petstore-openapi-client-pydantic)
+- [petstore-test-python](https://github.com/RamonAlcantaraArceo/petstore-test-python)
+
 ---
 
 ## Live Environments
-
+ 
 Dev uses an in-memory database. Staging uses PostgreSQL.
 
 | | Dev | Staging |
