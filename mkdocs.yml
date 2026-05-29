@@ -7,6 +7,9 @@ edit_uri: edit/main/docs/
 
 theme:
   name: material
+  icon:
+    repo: fontawesome/brands/github
+    logo: material/library-outline
   palette:
     - scheme: default
       primary: indigo
