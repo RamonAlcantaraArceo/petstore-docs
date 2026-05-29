@@ -1,25 +1,87 @@
 site_name: Petstore Docs
 site_description: Aggregated documentation for the Petstore ecosystem
+site_url: https://ramonalcantaraarceo.github.io/petstore-docs/
 repo_url: https://github.com/RamonAlcantaraArceo/petstore-docs
+repo_name: RAA/petstore-docs
 edit_uri: edit/main/docs/
 
 theme:
   name: material
+  palette:
+    - scheme: default
+      primary: indigo
+      accent: indigo
+      toggle:
+        icon: material/brightness-7
+        name: Switch to dark mode
+    - scheme: slate
+      primary: indigo
+      accent: indigo
+      toggle:
+        icon: material/brightness-4
+        name: Switch to light mode
   features:
     - navigation.tabs
+    - navigation.tabs.sticky
+    - navigation.sections
+    - navigation.expand
+    - navigation.top
+    - search.highlight
+    - content.code.copy
+    - search.suggest
+
+extra:
+  homepage: /petstore-docs/hello/
+
+extra_javascript:
+  - javascripts/redirect-root.js
+
+nav:
+  - Home: 
+    - Welcome: hello.md
+  - FastAPI: '!import https://github.com/RamonAlcantaraArceo/petstore-api?branch=main&docs_dir=docs/'
+  - React UI: '!import https://github.com/RamonAlcantaraArceo/petstore-ui?branch=doc&docs_dir=docs/'
+  - gRPC: '!import https://github.com/RamonAlcantaraArceo/petstore-grpc?branch=main'
+  - MCP: '!import https://github.com/RamonAlcantaraArceo/petstore-mcp?branch=main&docs_dir=docs/'
+  - OpenAPI Client Pydantic: '!import https://github.com/RamonAlcantaraArceo/petstore-openapi-client-pydantic?branch=main&keep_docs_dir=true&extra_imports=["README.md"]'
+  - Test Python: '!import https://github.com/RamonAlcantaraArceo/petstore-test-python?branch=main&docs_dir=docs/&extra_imports=["framework"]'
 
 plugins:
   - search
+  - mkdocstrings:
+      handlers:
+        python:
+          paths:
+            - .
+            - docs/Test-Python
+            - ../petstore-api
+            - ../petstore-test-python
+            - ../petstore-openapi-client-pydantic
+            - ../petstore-mcp
+            - ../petstore-grpc
+          options:
+            show_source: true
+            docstring_style: google
   - multirepo:
       cleanup: true
-      repos:
-        - section: petstore-api
-          import_url: "https://github.com/RamonAlcantaraArceo/petstore-api?branch=main&docs_dir=docs/"
-        - section: petstore-ui
-          import_url: "https://github.com/RamonAlcantaraArceo/petstore-ui?branch=main&docs_dir=docs/"
-        - section: petstore-mcp
-          import_url: "https://github.com/RamonAlcantaraArceo/petstore-mcp?branch=main&docs_dir=docs/"
-        - section: petstore-openapi-client-pydantic
-          import_url: "https://github.com/RamonAlcantaraArceo/petstore-openapi-client-pydantic?branch=main&docs_dir=docs/"
-        - section: petstore-test-python
-          import_url: "https://github.com/RamonAlcantaraArceo/petstore-test-python?branch=main&docs_dir=docs/"
+      keep_docs_dir: false
+
+markdown_extensions:
+  - codehilite
+  - pymdownx.superfences:
+      custom_fences:
+        - name: mermaid
+          class: mermaid
+          format: !!python/name:pymdownx.superfences.fence_code_format
+  - admonition
+  - pymdownx.details
+  - pymdownx.highlight:
+      anchor_linenums: true
+  - pymdownx.inlinehilite
+  - pymdownx.snippets
+  - pymdownx.tabbed:
+      alternate_style: true
+  - attr_list
+  - tables
+  - toc:
+      permalink: true
