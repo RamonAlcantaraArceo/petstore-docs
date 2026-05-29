@@ -40,7 +40,7 @@ nav:
   - Home: 
     - Welcome: hello.md
   - FastAPI: '!import https://github.com/RamonAlcantaraArceo/petstore-api?branch=main&docs_dir=docs/'
-  - React UI: '!import https://github.com/RamonAlcantaraArceo/petstore-ui?branch=doc&docs_dir=docs/'
+  - React UI: '!import https://github.com/RamonAlcantaraArceo/petstore-ui?branch=main&docs_dir=docs/'
   - gRPC: '!import https://github.com/RamonAlcantaraArceo/petstore-grpc?branch=main'
   - MCP: '!import https://github.com/RamonAlcantaraArceo/petstore-mcp?branch=main&docs_dir=docs/'
   - OpenAPI Client Pydantic: '!import https://github.com/RamonAlcantaraArceo/petstore-openapi-client-pydantic?branch=main&keep_docs_dir=true&extra_imports=["README.md"]'
